@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=No">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app">
+    <div id="header" class="header" v-bind:title="title">
+        <div id="burger_button" class="burger_button" v-bind:class="{burger_button_clicked: menu}" v-on:click="showMenu">
+            <div class="burger_button_stick"></div>
+            <div class="burger_button_stick"></div>
+            <div class="burger_button_stick"></div>
+        </div>
+        <p id="user_name" class="user_name" v-bind:user_name="user_name">User: {{ user_name }}</p>
+        <div id="header_circle" class="header_circle"></div>
+        <button class="header_menu_buttons" type="button">1</button>
+        <button class="header_menu_buttons" type="button">2</button>
+        <button class="header_menu_buttons" type="button">3</button>
+        <button class="header_menu_buttons" type="button">4</button>
+        <div id="list_select_block" class="list_select_block" v-if="list_select">
+            <form name="list_select_menu_form">
+                <select name="list_select_menu" id="list_select_menu">
+                    <option value="1">first</option>
+                    <option value="2">second</option>
+                    <option value="3">third</option>
+                </select>
+                    <button type="submit">delete list</button>
+            </form>
+        </div>
+    </div>
+    <form>
+        <label for="task_input_field"></label><input type="text" name="task_input_field" id="task_input_field" class="task_input_field" autocomplete="off" maxlength="255">
+        <button type="button" id="task_input_button" class="task_input_button">INPUT</button>
+    </form>
+    <div id="task_list" class="task_list">
+            <ul>
+                <li class="task" v-for="item in list" v-bind:key="item.id">{{ item.text }}</li>
+            </ul>
+        </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

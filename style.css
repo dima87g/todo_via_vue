@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#app {
+    height: 100vh;
+    border: solid 1px;
+    background-color: chartreuse;
+}
+
+.header {
+    position: relative;
+    height: 15vh;
+    background-color: crimson;
+    transition: height 0.5s,
+                border-radius 0.5s;
+}
+
+.header_open {
+    height: 30vh;
+    border-radius: 0 0 40% 40%;
+}
+
+.burger_button {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 5px;
+    right: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.burger_button_stick {
+    width: 30px;
+    height: 4px;
+    background-color: chartreuse;
+    transition: transform 0.5s,
+                opacity 0.5s;
+    transform-origin: 1px;
+}
+
+.burger_button_clicked {
+
+}
+
+.burger_button_clicked > :nth-child(1) {
+    transform: rotate(45deg)
+                translateX(5px)
+                translateY(-5px);
+}
+
+.burger_button_clicked > :nth-child(2) {
+    transform: translateX(-30px);
+    opacity: 0;
+}
+
+.burger_button_clicked > :nth-child(3) {
+    transform: rotate(-45deg)
+                translateX(5px)
+                translateY(5px);
+}
+
+.user_name {
+    border: solid 1px;
+}
+
+.header_circle {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -50px;
+    margin-top: -50px;
+    width: 100px;
+    height: 100px;
+    background-color: azure;
+    border-radius: 50%;
+}
+
+.header_menu_buttons {
+    position: absolute;
+    top: 50%;
+    margin-top: -25px;
+    left: 50%;
+    margin-left: -25px;
+    width: 50px;
+    height: 50px;
+    border-radius: 20px 20px;
+    outline: none;
+    transition: top 0.5s,
+                right 0.5s,
+                bottom 0.5s,
+                left 0.5s;
+}
+
+.header_menu_button1_showed {
+
+}
+
+.header_menu_button2_showed {
+
+}
+
+.header_menu_button3_showed {
+
+}
+
+.header_menu_button4_showed {
+
+}
+
+.task_input_field {
+    margin-top: 5px;
+}
+
+.task_input_button {
+    margin-top: 10px;
+}
+
+.task_list {
+    margin-top: 10px;
+}
+
+.task {
+    border: solid 1px;
+}
