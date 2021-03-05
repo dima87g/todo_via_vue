@@ -3,14 +3,18 @@
     padding: 0;
 }
 
+[v-cloak] {
+  display: none;
+}
+
 #app {
     height: 100vh;
-    border: solid 1px;
     background-color: chartreuse;
 }
 
 .header {
     position: relative;
+    width: 100vw;
     height: 15vh;
     background-color: crimson;
     transition: height 0.5s,
@@ -63,11 +67,10 @@
                 translateY(5px);
 }
 
-.user_name {
-    border: solid 1px;
-}
-
 .header_circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -77,14 +80,16 @@
     height: 100px;
     background-color: azure;
     border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.header_circle_showed {
+    opacity: 1;
 }
 
 .header_menu_buttons {
     position: absolute;
-    top: 50%;
-    margin-top: -25px;
-    left: 50%;
-    margin-left: -25px;
     width: 50px;
     height: 50px;
     border-radius: 20px 20px;
@@ -92,37 +97,105 @@
     transition: top 0.5s,
                 right 0.5s,
                 bottom 0.5s,
-                left 0.5s;
+                left 0.5s,
+                margin 0.5s,
+                opacity 0.5s;
 }
 
 .header_menu_button1_showed {
+    top: 5vh;
+    left: 10vw;
+}
 
+.header_menu_button1_hide {
+    opacity: 0;
+    top: 50%;
+    margin-top: -25px;
+    left: 50%;
+    margin-left: -25px;
 }
 
 .header_menu_button2_showed {
+    top: 5vh;
+    right: 10vw;
+}
 
+.header_menu_button2_hide {
+    opacity: 0;
+    top: 50%;
+    margin-top: -25px;
+    right: 50%;
+    margin-right: -25px;
 }
 
 .header_menu_button3_showed {
+    left: 10vw;
+    bottom: 5vh;
+}
 
+.header_menu_button3_hide {
+    opacity: 0;
+    left: 50%;
+    margin-left: -25px;
+    bottom: 50%;
+    margin-bottom: -25px;
 }
 
 .header_menu_button4_showed {
+    right: 10vw;
+    bottom: 5vh;
+}
 
+.header_menu_button4_hide {
+    opacity: 0;
+    right: 50%;
+    margin-right: -25px;
+    bottom: 50%;
+    margin-bottom: -25px;
+}
+
+.user_name {
+    transition: text-align 0.5s,
+                margin 0.5s,
+                transform 0.5s;
+}
+
+.menu_user_name {
+    /*text-align: center;*/
+    /*margin-top: 20vh;*/
+    transform: translateX(43vw)
+                translateY(25vh);
+}
+
+.task_input_div {
+    position: relative;
+    width: 90vw;
+    height: 50px;
+    margin: 10px auto;
+    text-align: center;
 }
 
 .task_input_field {
-    margin-top: 5px;
+    width: 60vw;
+    height: 30px;
+    outline: none;
 }
 
 .task_input_button {
-    margin-top: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 20px 20px;
+    outline: none;
 }
 
 .task_list {
-    margin-top: 10px;
+    width: 90vw;
+    margin: 0 auto;
 }
 
 .task {
+    min-height: 50px;
+    margin-bottom: 5px;
     border: solid 1px;
+    text-align: center;
 }

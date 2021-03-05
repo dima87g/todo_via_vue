@@ -9,19 +9,21 @@
 <body>
 
 <div id="app">
-    <div id="header" class="header" v-bind:title="title">
-        <div id="burger_button" class="burger_button" v-bind:class="{burger_button_clicked: menu}" v-on:click="showMenu">
+    <div id="header" class="header" v-bind:class="headerClasses" v-bind:title="title">
+        <div id="burger_button" class="burger_button" v-bind:class="{burger_button_clicked: headerOpen}" v-on:click="openHeader">
             <div class="burger_button_stick"></div>
             <div class="burger_button_stick"></div>
             <div class="burger_button_stick"></div>
         </div>
-        <p id="user_name" class="user_name" v-bind:user_name="user_name">User: {{ user_name }}</p>
-        <div id="header_circle" class="header_circle"></div>
-        <button class="header_menu_buttons" type="button">1</button>
-        <button class="header_menu_buttons" type="button">2</button>
-        <button class="header_menu_buttons" type="button">3</button>
-        <button class="header_menu_buttons" type="button">4</button>
-        <div id="list_select_block" class="list_select_block" v-if="list_select">
+        <p id="user_name" class="user_name" v-bind:class="{menu_user_name: headerOpen}" v-bind:user_name="user_name" v-cloak>{{ user_name }}</p>
+        <div id="header_circle" class="header_circle" v-bind:class="{header_circle_showed: headerOpen}">
+            <p id="photo" class="photo">Photo</p>
+        </div>
+        <button class="header_menu_buttons header_menu_button1_showed" v-bind:class="{header_menu_button1_hide: !headerOpen}" v-cloak type="button">1</button>
+        <button class="header_menu_buttons header_menu_button2_showed" v-bind:class="{header_menu_button2_hide: !headerOpen}" v-cloak type="button">2</button>
+        <button class="header_menu_buttons header_menu_button3_showed" v-bind:class="{header_menu_button3_hide: !headerOpen}" v-cloak type="button">3</button>
+        <button class="header_menu_buttons header_menu_button4_showed" v-bind:class="{header_menu_button4_hide: !headerOpen}" v-cloak type="button">4</button>
+        <div id="list_select_block" class="list_select_block" v-if="list_select" v-cloak>
             <form name="list_select_menu_form">
                 <select name="list_select_menu" id="list_select_menu">
                     <option value="1">first</option>
@@ -32,10 +34,13 @@
             </form>
         </div>
     </div>
-    <form>
-        <label for="task_input_field"></label><input type="text" name="task_input_field" id="task_input_field" class="task_input_field" autocomplete="off" maxlength="255">
-        <button type="button" id="task_input_button" class="task_input_button">INPUT</button>
-    </form>
+    <div class="task_input_div">
+        <form>
+            <label for="task_input_field"></label><input type="text" name="task_input_field" id="task_input_field"
+                                                         class="task_input_field" autocomplete="off" maxlength="255">
+            <button type="button" id="task_input_button" class="task_input_button">INPUT</button>
+        </form>
+    </div>
     <div id="task_list" class="task_list">
             <ul>
                 <li class="task" v-for="item in list" v-bind:key="item.id">{{ item.text }}</li>

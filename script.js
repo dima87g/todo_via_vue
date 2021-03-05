@@ -5,7 +5,7 @@ let app = new Vue({
     data: {
         title: 'Header',
         user_name: 'dima87g',
-        menu: false,
+        headerOpen: false,
         list_select: false,
         list: [
             {id: 0, text: 'First task'},
@@ -14,8 +14,15 @@ let app = new Vue({
         ]
     },
     methods: {
-        showMenu: function() {
-            this.menu = !this.menu;
+        openHeader: function() {
+            this.headerOpen = !this.headerOpen;
         }
+    },
+    computed: {
+        headerClasses: function () {
+            return {
+                header_open: this.headerOpen
+            }
+        },
     }
 })
